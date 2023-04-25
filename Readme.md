@@ -1,4 +1,5 @@
 # Paper-to-Pad-Image-Processing
+![Demo Drawing](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/test.png)
 
 The Pen-to-Mouse Tracker is an open-source Python project that uses image processing techniques to track the movement of a pen on paper and transfer it to the mouse. It can be used to draw and write on online collaborative drawing tools or image editing software like GIMP just like using an Tablet.
 Benefits and Caveats
