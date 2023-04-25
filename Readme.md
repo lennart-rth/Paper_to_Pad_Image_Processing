@@ -25,7 +25,7 @@ The Pen-to-Mouse Tracker is an open-source Python project that uses image proces
 2. Install dependencies by running `pip install -r requirements.txt`
 3. Connect your camera and ensure that it is being detected.
 4. Run the pen_to_mouse.py script.
-5. If using a video stream, uncomment and edit the line "capture = cv2.VideoCapture("http://<Your-IP>:<Your-Port>/video")" to add your stream.
+5. If using a video stream, uncomment and edit the line "capture = cv2.VideoCapture("http://Your-IP:Your-Port/video")" to add your stream.
 6. If using a prerecorded video, uncomment and edit the line "capture = cv2.VideoCapture("test.MOV")" to add your file.
 7. Calibrate the pen by hovering over it with the mouse and pressing the "a" key. You can adjust the sliders on the bottom of the window until the outline of the pen is detected correctly.
 8. Mark the edges of the paper by hovering over a corner with the mouse and pressing the "c" key. The order is not importand.
