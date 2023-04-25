@@ -2,8 +2,8 @@ from collections import deque
 import numpy as np
 
 ###Settings#####
-DEBUG = True               #Use predefined Pen_color_calibration. Show a image of the Masking of the Pen 
-point_smoothing = 1        #smoothe the tracked point movement (0-inf) the lower the less smoothing
+DEBUG = False               #Use predefined Pen_color_calibration. Show a image of the Masking of the Pen 
+point_smoothing = 2        #smoothe the tracked point movement (0-inf) the lower the less smoothing
 lower = np.array([61.94,60.01,-15.5])       # hardset calibration for pen - lower color bound !!only used when DEBUG=True!!
 upper = np.array([117.94,116.01,40.5])        # hardset calibration for pen - lower color bound !!only used when DEBUG=True!!
 debug_corners = np.array([(221, 394), (754, 665), (946, 130), (575, 39)])
@@ -25,6 +25,10 @@ mouse_pos = None    # bosition of the mouse on the opencv_Frame (Gui interal)
 filtered_position = [0,0]
 old_pen_point = [0,0]
 rolling_window = deque(maxlen=point_smoothing)    # smoothening the Movement of the mouse
+
+M = None    #The Transformation-matrix to change the perspective to birds eye view
+maxWidth = 0
+maxHeight = 0
 
 corners = []        #list of corners calibrated by the user to Trasnform the Image to Birds View
 

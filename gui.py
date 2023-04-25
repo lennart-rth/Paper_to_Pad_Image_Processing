@@ -55,7 +55,7 @@ def colormasking_pen(frame):
         config.lower = np.array(color)-min_val
         config.upper = np.array(color)+max_val
 
-    print(config.lower,config.upper)
+    # print(config.lower,config.upper)
     mask = cv2.inRange(frame, config.lower, config.upper )
     return mask
 

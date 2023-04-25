@@ -20,29 +20,30 @@ def move_mouse(warped_point):
          pass
 
 def handle_perspective_change(frame_vis):
-    print(config.corners)
+    warped_point = [0,0]
     try:
-        warped,warped_point = four_point_transform(frame_vis, np.asarray(config.corners, dtype="float32")) 
+        warped, warped_point = four_point_transform(frame_vis) 
         warped_point = warped_point[0][0] 
 
-        # Create a new 4-channel image with transparency values
-        hwa = int(warped.shape[0])
-        wwa = int(warped.shape[1])
+        if warped is not None:          #is None every nth Frame prevent a delay in the video Processing
+            # Create a new 4-channel image with transparency values
+            hwa = int(warped.shape[0])
+            wwa = int(warped.shape[1])
 
-        transparent_img = np.zeros((hwa, wwa, 4), dtype=np.uint8)
-        cv2.circle(transparent_img, (int(warped_point[0]),int(warped_point[1])), 3, (0, 0, 255), -1)
+            transparent_img = np.zeros((hwa, wwa, 4), dtype=np.uint8)
+            cv2.circle(transparent_img, (int(warped_point[0]),int(warped_point[1])), 3, (0, 0, 255), -1)
 
-        alpha = np.ones((hwa, wwa, 1), dtype=np.uint8) * 255
-        rgba = np.concatenate((warped, alpha), axis=2)
-        warped = cv2.addWeighted(rgba,1,transparent_img,1,0)
+            alpha = np.ones((hwa, wwa, 1), dtype=np.uint8) * 255
+            rgba = np.concatenate((warped, alpha), axis=2)
+            warped = cv2.addWeighted(rgba,1,transparent_img,1,0)
         
-        w = frame_vis.shape[1]
-        h = frame_vis.shape[0]
-        # print(frame_vis.shape)
+            w = frame_vis.shape[1]
+            h = frame_vis.shape[0]
+            # print(frame_vis.shape)
 
-        # warped = cv2.resize(warped,(int((700/h)*w),700))
-        warped = cv2.flip(warped, -1)
-        cv2.imshow('DinA4', warped) 
+            # warped = cv2.resize(warped,(int((700/h)*w),700))
+            warped = cv2.flip(warped, -1)
+            cv2.imshow('DinA4', warped) 
         # print(warped_point) 
 
         move_mouse(warped_point)
@@ -78,8 +79,7 @@ def order_points(pts):
 
 	return np.array([tl, tr, br, bl], dtype="float32")
 
-
-def four_point_transform(image, pts):
+def calc_persepctive_transform(pts):
     rect = order_points(pts)      #we dont need to order the points because the user is instrucetd to add the points in the right order
     (tl, tr, br, bl) = rect
 
@@ -100,12 +100,15 @@ def four_point_transform(image, pts):
 
 	# compute the perspective transform matrix and then apply it
     M = cv2.getPerspectiveTransform(rect, dst)
+    return M, maxWidth, maxHeight
 
-    warped = cv2.warpPerspective(image, M, (maxWidth, maxHeight))
+def four_point_transform(image):
+    config.M, config.maxWidth, config.maxHeight = calc_persepctive_transform(np.asarray(config.corners, dtype="float32"))
+    warped = cv2.warpPerspective(image, config.M, (config.maxWidth, config.maxHeight))
+
     track_point = np.array([config.filtered_position], dtype='float32')
     track_point = np.array([track_point])
-
-    new_point = cv2.perspectiveTransform(track_point, M)
+    new_point = cv2.perspectiveTransform(track_point, config.M)
     
 	# return the warped image and point
     return warped, new_point

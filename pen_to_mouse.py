@@ -22,8 +22,8 @@ cv2.createTrackbar('pen_color_max', 'main', 0, 100, nothing)
 cv2.createTrackbar('mouse_sensitivity', 'main', 1, 100, nothing)
 
 
-# capture = cv2.VideoCapture("http://192.168.178.54:4747/video")
-capture = cv2.VideoCapture("test.MOV")
+capture = cv2.VideoCapture("http://192.168.178.54:4747/video")
+# capture = cv2.VideoCapture("test.MOV")
 
 if not capture.isOpened():
     print("Cannot open camera")
