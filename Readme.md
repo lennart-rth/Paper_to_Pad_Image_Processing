@@ -1,11 +1,14 @@
 # Paper-to-Pad-Image-Processing
-![Demo Drawing](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/test.png)
-
-![Actual Video Input (left), Perspective warped compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_green.png)
-![Actual Video Input (left), Perspective warped compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_red.png)
-
-
 The Pen-to-Mouse Tracker is an open-source Python project that uses image processing techniques to track the movement of a pen on paper and transfer it to the mouse. It can be used to draw and write on online collaborative drawing tools or image editing software like GIMP just like using an Tablet.All it needs is a video of the Hand drawing on a Paper. The persepctive or orientation is not importand since it is automaticly accounted for.
+
+![Demo Drawing](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/test.png)\
+*Hand written drawing in paper (left), digitalized Drawing based on the pen movement (right)*
+
+![Actual Video Input (left), Perspective warped compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_green.png)\
+*Actual Video Input (left), Perspective warped compensated video (right)*
+
+![Actual Video Input (left), Perspective warped compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_red.png)\
+*Actual Video Input (left), Perspective warped compensated video (right)*
 
 ## Benefits:
 - Allows users to see their drawing on analog paper while also digitalizing it live.
