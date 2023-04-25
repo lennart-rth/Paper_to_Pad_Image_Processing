@@ -4,11 +4,11 @@ The Pen-to-Mouse Tracker is an open-source Python project that uses image proces
 ![Demo Drawing](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/test.png)\
 *Hand written drawing in paper (left), digitalized Drawing based on the pen movement (right)*
 
-![Actual Video Input (left), Perspective warped compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_green.png)\
-*Actual Video Input (left), Perspective warped compensated video (right)*
+![Actual Video Input (left), Perspective compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_green.png)\
+*Actual Video Input (left), Perspective compensated video (right)*
 
-![Actual Video Input (left), Perspective warped compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_red.png)\
-*Actual Video Input (left), Perspective warped compensated video (right)*
+![Actual Video Input (left), Perspective compensated video (right)](https://github.com/lennart-rth/Paper_to_Pad_Image_Processing/blob/master/demo_red.png)\
+*Actual Video Input (left), Perspective compensated video (right)*
 
 ## Benefits:
 - Allows users to see their drawing on analog paper while also digitalizing it live.
